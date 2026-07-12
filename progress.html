@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - VIGOUR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: lavender;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        h1 {
+            text-align: center;
+            color: #5e4b8a;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .section h2 {
+            margin-top: 0;
+        }
+        .milestone {
+            padding: 10px;
+            background: #f2f2f2;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #5e4b8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #7a6a9e;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Progress Tracking</h1>
+
+    <div class="section">
+        <h2>Measurements</h2>
+        <p>Track your fitness measurements:</p>
+        <input type="text" id="weight" placeholder="Enter weight (kg)" />
+        <input type="text" id="height" placeholder="Enter height (cm)" />
+        <input type="text" id="bmi" placeholder="Your BMI" />
+        <a href="#" class="button" id="saveMeasurements">Save Measurements</a>
+    </div>
+
+    <div class="section">
+        <h2>Fitness Milestones</h2>
+        <p>Celebrate your achievements:</p>
+        <div id="milestoneList">
+            <div class="milestone">10,000 Steps in a Day</div>
+            <div class="milestone">Lost 5 kg</div>
+            <div class="milestone">Completed 30-Day Challenge</div>
+        </div>
+        <input type="text" id="newMilestone" placeholder="Add a new milestone" />
+        <a href="#" class="button" id="addMilestone">Add New Milestone</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('saveMeasurements').addEventListener('click', function(e) {
+        e.preventDefault();
+        const weight = document.getElementById('weight').value;
+        const height = document.getElementById('height').value;
+        const bmi = document.getElementById('bmi').value;
+
+        if (weight && height && bmi) {
+            alert(`Measurements saved:\nWeight: ${weight} kg\nHeight: ${height} cm\nBMI: ${bmi}`);
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+            document.getElementById('bmi').value = '';
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+
+    document.getElementById('addMilestone').addEventListener('click', function(e) {
+        e.preventDefault();
+        const newMilestone = document.getElementById('newMilestone').value;
+
+        if (newMilestone) {
+            const milestoneList = document.getElementById('milestoneList');
+            const newMilestoneDiv = document.createElement('div');
+            newMilestoneDiv.className = 'milestone';
+            newMilestoneDiv.textContent = newMilestone;
+            milestoneList.appendChild(newMilestoneDiv);
+            document.getElementById('newMilestone').value = '';
+        } else {
+            alert('Please enter a milestone.');
+        }
+    });
+</script>
+
+</body>
+</html>

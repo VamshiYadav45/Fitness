@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIGOUR - Initial Questionnaire</title>
+    <style>
+        body {
+            background-color: #e6e6fa; /* Lavender background */
+            color: #333; /* Dark text for contrast */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .questionnaire {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #5c5c8a; /* Darker text for the heading */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Button hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="questionnaire">
+        <h1>INITIAL QUESTIONNAIRE</h1>
+        <form>
+            <label for="goals">Fitness Goals:</label>
+            <select id="goals" name="goals">
+                <option value="weight_loss">Weight Loss</option>
+                <option value="muscle_gain">Muscle Gain</option>
+                <option value="maintain">Maintain Fitness</option>
+            </select>
+
+            <label for="preferences">Preferences:</label>
+            <input type="text" id="preferences" name="preferences" placeholder="e.g., Yoga, Weightlifting" required>
+
+            <label for="fitness_level">Current Fitness Level:</label>
+            <select id="fitness_level" name="fitness_level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" min="1" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

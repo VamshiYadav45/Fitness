@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUTRITION - VIGOUR</title>
+    <style>
+        body {
+            background-color: lavender;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4A4A4A;
+        }
+        .module {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #6A5ACD;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #483D8B;
+        }
+        .recommendations {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>NUTRITION</h1>
+
+    <!-- Calorie Intake Section -->
+    <div class="module">
+        <h2>Calorie Intake</h2>
+        <label for="calories">Enter your daily calorie intake:</label>
+        <input type="number" id="calories" placeholder="Calories" />
+        <button onclick="calculateCalories()">Submit</button>
+        <div id="calorieMessage"></div>
+    </div>
+
+    <!-- Recipe Planning Section -->
+    <div class="module">
+        <h2>Recipe Planning</h2>
+        <label for="recipe">Select a meal:</label>
+        <select id="recipe">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+        </select>
+        <button onclick="planRecipe()">Plan Recipe</button>
+        <div id="recipeSuggestion"></div>
+    </div>
+
+    <!-- Water Intake Section -->
+    <div class="module">
+        <h2>Water Intake</h2>
+        <label for="waterIntake">Enter your daily water intake (in liters):</label>
+        <input type="number" id="waterIntake" placeholder="Liters" />
+        <button onclick="trackWater()">Track Water Intake</button>
+        <div id="waterMessage"></div>
+    </div>
+
+    <!-- Meal Log Section -->
+    <div class="module">
+        <h2>Meal Log</h2>
+        <label for="meal">Log your meal:</label>
+        <input type="text" id="meal" placeholder="Enter your meal" />
+        <button onclick="logMeal()">Log Meal</button>
+        <div id="mealLog"></div>
+    </div>
+
+    <!-- BMI Calculator Section -->
+    <div class="module">
+        <h2>BMI Calculator</h2>
+        <label for="weight">Enter your weight (kg):</label>
+        <input type="number" id="weight" placeholder="Weight in kg" />
+        <label for="height">Enter your height (m):</label>
+        <input type="number" id="height" placeholder="Height in meters" />
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <div id="bmiResult"></div>
+    </div>
+
+    <!-- Exercise Tracking Section -->
+    <div class="module">
+        <h2>Exercise Tracker</h2>
+        <label for="exercise">Enter your exercise (e.g., running, cycling):</label>
+        <input type="text" id="exercise" placeholder="Exercise type" />
+        <label for="duration">Enter duration (in minutes):</label>
+        <input type="number" id="duration" placeholder="Duration in minutes" />
+        <button onclick="trackExercise()">Track Exercise</button>
+        <div id="exerciseLog"></div>
+    </div>
+
+    <!-- Recommendations Section -->
+    <div class="module">
+        <h2>Recommendations</h2>
+        <button onclick="getRecommendations()">Get Recommendations</button>
+        <div class="recommendations" id="recommendations"></div>
+    </div>
+</div>
+
+<script>
+    function calculateCalories() {
+        const calories = document.getElementById('calories').value;
+        const message = `Your daily calorie intake is set to ${calories} calories.`;
+        document.getElementById('calorieMessage').innerText = message;
+    }
+
+    function planRecipe() {
+        const recipe = document.getElementById('recipe').value;
+        const suggestion = `Suggested recipe for ${recipe}: Grilled chicken salad.`;
+        document.getElementById('recipeSuggestion').innerText = suggestion;
+    }
+
+    function trackWater() {
+        const water = document.getElementById('waterIntake').value;
+        const message = `You've tracked ${water} liters of water intake today.`;
+        document.getElementById('waterMessage').innerText = message;
+    }
+
+    function logMeal() {
+        const meal = document.getElementById('meal').value;
+        const log = document.getElementById('mealLog');
+        log.innerHTML += `<div>${meal}</div>`;
+        document.getElementById('meal').value = ''; // Clear input
+    }
+
+    function calculateBMI() {
+        const weight = document.getElementById('weight').value;
+        const height = document.getElementById('height').value;
+        if (weight > 0 && height > 0) {
+            const bmi = (weight / (height * height)).toFixed(2);
+            const message = `Your BMI is ${bmi}.`;
+            document.getElementById('bmiResult').innerText = message;
+        } else {
+            document.getElementById('bmiResult').innerText = 'Please enter valid weight and height.';
+        }
+    }
+
+    function trackExercise() {
+        const exercise = document.getElementById('exercise').value;
+        const duration = document.getElementById('duration').value;
+        const log = document.getElementById('exerciseLog');
+        log.innerHTML += `<div>${exercise} for ${duration} minutes</div>`;
+        document.getElementById('exercise').value = ''; // Clear input
+        document.getElementById('duration').value = ''; // Clear input
+    }
+
+    function getRecommendations() {
+        const recommendations = `
+            1. Include more fruits and vegetables in your meals.
+            2. Stay hydrated with at least 2 liters of water daily.
+            3. Balance your macros: carbs, proteins, and fats.
+            4. Aim for at least 30 minutes of exercise most days.
+        `;
+        document.getElementById('recommendations').innerText = recommendations;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIGOUR - Workout Module</title>
+    <style>
+        body {
+            background-color: lavender;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .workout-module {
+            max-width: 800px;
+            margin: auto;
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4B0082;
+        }
+        .workout {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .workout:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .video {
+            margin: 10px 0;
+        }
+        button {
+            background-color: #4B0082;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6A5ACD;
+        }
+    </style>
+</head>
+<body>
+
+<div class="workout-module">
+    <h1>WORKOUT</h1>
+
+    <div class="workout">
+        <h2>Strength Training</h2>
+        <p><strong>Time Spent:</strong> 30 mins</p>
+        <p><strong>Calories Burned:</strong> 300 kcal</p>
+        <div class="video">
+            <strong>Video:</strong>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/your-video-id-1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><strong>Instructions:</strong> Focus on major muscle groups. Use proper form.</p>
+        <button onclick="alert('Strength Training: Focus on your form!')">More Info</button>
+    </div>
+
+    <div class="workout">
+        <h2>Cardio</h2>
+        <p><strong>Time Spent:</strong> 20 mins</p>
+        <p><strong>Calories Burned:</strong> 200 kcal</p>
+        <div class="video">
+            <strong>Video:</strong>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/your-video-id-2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><strong>Instructions:</strong> Maintain a steady pace. Hydrate regularly.</p>
+        <button onclick="alert('Cardio: Keep your heart rate up!')">More Info</button>
+    </div>
+
+    <div class="workout">
+        <h2>Flexibility</h2>
+        <p><strong>Time Spent:</strong> 15 mins</p>
+        <p><strong>Calories Burned:</strong> 100 kcal</p>
+        <div class="video">
+            <strong>Video:</strong>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/your-video-id-3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><strong>Instructions:</strong> Stretch all major muscle groups.</p>
+        <button onclick="alert('Flexibility: Stretch daily for best results!')">More Info</button>
+    </div>
+
+    <div class="workout">
+        <h2>Yoga</h2>
+        <p><strong>Time Spent:</strong> 40 mins</p>
+        <p><strong>Calories Burned:</strong> 250 kcal</p>
+        <div class="video">
+            <strong>Video:</strong>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/your-video-id-4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><strong>Instructions:</strong> Focus on breathing and relaxation.</p>
+        <button onclick="alert('Yoga: Embrace the flow!')">More Info</button>
+    </div>
+</div>
+
+</body>
+</html>
